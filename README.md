@@ -7,6 +7,6 @@
 </h1>
 
 <p align="center">
-  WIP. Either and Maybe from
+  WIP. Fast Either and Maybe from
   <a href="https://github.com//fantasyland/fantasy-land">Fantasy Land</a>
 </p>
