@@ -1,6 +1,6 @@
 {
   "name": "igogo",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "description": "Fast Either and Maybe from Fantasy Land",
   "repository": "git@github.com:bigslycat/igogo.git",
   "author": "Pavel Tereschenko <me@stupidcat.wtf> (https://github.com/bigslycat)",
