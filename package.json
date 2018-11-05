@@ -16,7 +16,7 @@
     "build": "rollup -c",
     "lint": "eslint .",
     "flow": "flow",
-    "preversion": "git checkout master && yarn precommit",
+    "preversion": "git checkout master && yarn lint && yarn flow",
     "postversion": "git push --follow-tags"
   },
   "husky": {
