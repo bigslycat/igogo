@@ -78,10 +78,6 @@ class MaybeJust<+T> implements Maybe<T> {
 }
 
 class MaybeNothing<+T> implements Maybe<T> {
-  constructor(/* :: value: T */) {
-    if (typeof nothing != 'undefined') return nothing;
-  }
-
   map() {
     return nothing;
   }
