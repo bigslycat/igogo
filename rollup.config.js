@@ -18,7 +18,7 @@ const banner = `
 `;
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.mjs',
   output: {
     file: 'lib/bundle.js',
     format: 'cjs',
