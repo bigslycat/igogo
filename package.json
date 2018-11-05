@@ -13,7 +13,9 @@
     "src"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "yarn build:cjs && yarn build:esm",
+    "build:cjs": "rollup -c",
+    "build:esm": "BABEL_ENV=esm babel src -d esm --keep-file-extension",
     "lint": "eslint .",
     "flow": "flow",
     "preversion": "git checkout master && yarn lint && yarn flow",
@@ -31,6 +33,7 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/cli": "^7.1.2",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
