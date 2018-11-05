@@ -13,7 +13,7 @@ const env = (modules, { esm = false } = {}) => [
             'not dead',
           ],
         },
-    useBuiltIns: esm ? false : 'usage',
+    useBuiltIns: 'usage',
     modules: !!modules && 'commonjs',
   },
 ];
