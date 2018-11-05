@@ -136,7 +136,21 @@ export const Nothing = <T>(/* :: value: T */): Maybe<T> => nothing;
 export const fromNullable = <T>(value: ?T): Maybe<T> =>
   value == null ? nothing : Just(value);
 
-export const when = <P: $Pred<1>, V>(
+declare function when<V>(condition: boolean, value: V): Maybe<V>;
+declare function when<V>(
+  predicate: typeof Boolean,
+  value: V,
+): Maybe<$NonMaybeType<V>>;
+declare function when<P: $Pred<1>, V>(
   predicate: P,
   value: V,
-): Maybe<$Refine<V, P, 1>> => (predicate(value) ? Just(value) : Nothing(value));
+): Maybe<$Refine<V, P, 1>>;
+
+export function when<V>(
+  predicate: boolean | (V => boolean),
+  value: V,
+): Maybe<V> {
+  const condition =
+    typeof predicate == 'boolean' ? predicate : predicate(value);
+  return condition ? Just(value) : nothing;
+}

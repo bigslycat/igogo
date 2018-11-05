@@ -39,6 +39,7 @@ rules:
   no-use-before-define: off
   no-param-reassign: off
   class-methods-use-this: off
+  no-redeclare: off
 
   import/prefer-default-export: off
 
