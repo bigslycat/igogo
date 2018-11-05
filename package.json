@@ -13,8 +13,9 @@
     "src"
   ],
   "scripts": {
-    "build": "rollup -c && yarn makeesm",
-    "makeesm": "BABEL_ENV=esm babel src -d esm --keep-file-extension",
+    "build": "yarn build:cjs && yarn build:esm",
+    "build:cjs": "rollup -c",
+    "build:esm": "BABEL_ENV=esm babel src -d esm --keep-file-extension",
     "lint": "eslint .",
     "flow": "flow",
     "preversion": "git checkout master && yarn lint && yarn flow",
