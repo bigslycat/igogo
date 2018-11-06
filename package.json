@@ -16,7 +16,7 @@
   "scripts": {
     "build": "yarn build:cjs && yarn build:esm",
     "build:cjs": "rollup -c",
-    "build:esm": "rm -rf esm && ABEL_ENV=esm babel src -d esm --keep-file-extension && yarn flow-entry",
+    "build:esm": "rm -rf esm && BABEL_ENV=esm babel src -d esm --keep-file-extension && yarn flow-entry",
     "flow-entry": "cp lib/index.js.flow esm/index.mjs.flow",
     "lint": "eslint .",
     "flow": "flow",
