@@ -10,6 +10,11 @@ export interface Either<+L, +R> {
   mapL<L1>(transform: (L) => L1): Either<L1, R>;
   bimap<L1, R1>(transformL: (L) => L1, transformR: (R) => R1): Either<L1, R1>;
 
+  mapTo<R1>(right: R1): Either<L, R1>;
+  mapRTo<R1>(right: R1): Either<L, R1>;
+  mapLTo<L1>(left: L1): Either<L1, R>;
+  bimapTo<L1, R1>(left: L1, right: R1): Either<L1, R1>;
+
   chain<L1, R1>(transform: (R) => Either<L1, R1>): Either<L | L1, R1>;
   chainR<L1, R1>(transform: (R) => Either<L1, R1>): Either<L | L1, R1>;
   chainL<L1, R1>(transform: (L) => Either<L1, R1>): Either<L1, R | R1>;
@@ -67,6 +72,22 @@ class EitherRight<+L, +R> implements Either<L, R> {
 
   bimap<L1, R1>(transformL: L => L1, transformR: R => R1): Either<L1, R1> {
     return this.mapR(transformR).mapL(transformL);
+  }
+
+  mapTo<R1>(value: R1): Either<L, R1> {
+    return Right(value);
+  }
+
+  mapRTo<R1>(value: R1): Either<L, R1> {
+    return Right(value);
+  }
+
+  mapLTo<L1>(): Either<L1, R> {
+    return (this: Either<any, R>);
+  }
+
+  bimapTo<L1, R1>(left: L1, right: R1): Either<L1, R1> {
+    return this.mapRTo(right).mapLTo(left);
   }
 
   chain<L1, R1>(transform: R => Either<L1, R1>): Either<L | L1, R1> {
@@ -193,6 +214,22 @@ class EitherLeft<+L, +R> implements Either<L, R> {
 
   bimap<L1, R1>(transformL: L => L1, transformR: R => R1): Either<L1, R1> {
     return this.mapL(transformL).mapR(transformR);
+  }
+
+  mapTo<R1>(): Either<L, R1> {
+    return (this: any);
+  }
+
+  mapRTo<R1>(): Either<L, R1> {
+    return (this: any);
+  }
+
+  mapLTo<L1>(left: L1): Either<L1, R> {
+    return new EitherLeft(left);
+  }
+
+  bimapTo<L1, R1>(left: L1, right: R1): Either<L1, R1> {
+    return this.mapLTo(left).mapRTo(right);
   }
 
   mapBoth<L1, R1>(transformL: L => L1, transformR: R => R1): Either<L1, R1> {

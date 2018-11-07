@@ -6,6 +6,7 @@ import { getSet } from './getSet';
 
 export interface Maybe<+T> {
   map<T1>(transform: (T) => T1): Maybe<T1>;
+  mapTo<T1>(value: T1): Maybe<T1>;
   ap<T1>(maybe: Maybe<(T) => T1>): Maybe<T1>;
   chain<T1>(transform: (T) => Maybe<T1>): Maybe<T1>;
 
@@ -32,6 +33,10 @@ class MaybeJust<+T> implements Maybe<T> {
 
   map<T1>(transform: T => T1): Maybe<T1> {
     return Just(transform(getValue(this)));
+  }
+
+  mapTo<T1>(value: T1): Maybe<T1> {
+    return Just(value);
   }
 
   ap<T1>(maybe: Maybe<(T) => T1>): Maybe<T1> {
@@ -79,6 +84,10 @@ class MaybeJust<+T> implements Maybe<T> {
 
 class MaybeNothing<+T> implements Maybe<T> {
   map() {
+    return nothing;
+  }
+
+  mapTo() {
     return nothing;
   }
 
