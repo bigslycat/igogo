@@ -311,8 +311,8 @@ const [getLeft, setLeft]: [
   <L, R>(EitherLeft<L, R>, L) => L,
 ] = getSet('left');
 
-export const Right = <R>(right: R): Either<any, R> => new EitherRight(right);
-export const Left = <L>(left: L): Either<L, any> => new EitherLeft(left);
+export const Right = <L, R>(right: R): Either<L, R> => new EitherRight(right);
+export const Left = <L, R>(left: L): Either<L, R> => new EitherLeft(left);
 
 export const ifElse = <L, R>(
   condition: boolean,
