@@ -1,20 +1,14 @@
-/* @flow */
-
-const env = (modules, { esm = false } = {}) => [
+const env = ({ modules = false, esm = false } = {}) => [
   '@babel/env',
   {
     targets: esm
       ? { node: 10 }
       : {
-          browsers: [
-            'last 4 version',
-            '> 1%',
-            'maintained node versions',
-            'not dead',
-          ],
+          node: 6,
+          browsers: ['last 4 version', '> 1%', 'not dead'],
         },
     useBuiltIns: 'usage',
-    modules: !!modules && 'commonjs',
+    modules: modules && 'commonjs',
   },
 ];
 
@@ -22,10 +16,11 @@ module.exports = {
   presets: ['@babel/flow', env()],
   env: {
     test: {
-      presets: ['@babel/flow', env(true)],
+      plugins: ['istanbul'],
+      presets: [env({ modules: true }), ['module:ava/stage-4', false]],
     },
     esm: {
-      presets: ['@babel/flow', env(false, { esm: true })],
+      presets: [env({ esm: true })],
     },
   },
 };

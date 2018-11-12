@@ -16,10 +16,13 @@
   "scripts": {
     "build": "yarn build:cjs && yarn build:esm",
     "build:cjs": "rollup -c",
-    "build:esm": "rm -rf esm && BABEL_ENV=esm babel src -d esm --keep-file-extension && yarn flow-entry",
+    "build:esm": "rm -rf esm && BABEL_ENV=esm node scripts/build-esm.js && yarn flow-entry",
     "flow-entry": "cp lib/index.js.flow esm/index.mjs.flow",
     "lint": "eslint .",
     "flow": "flow",
+    "test": "ava --timeout=30s --verbose",
+    "test:nyc": "nyc ava --timeout=30s --verbose",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "preversion": "git checkout master && yarn lint && yarn flow",
     "postversion": "git push --follow-tags"
   },
@@ -28,23 +31,51 @@
       "pre-commit": "yarn lint && yarn flow"
     }
   },
+  "ava": {
+    "require": [
+      "@babel/register"
+    ]
+  },
+  "nyc": {
+    "require": [
+      "esm",
+      "@babel/register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "exclude": [
+      "**/index.js",
+      "**/*.config.js",
+      "**/*.test.js",
+      "lib"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
   "dependencies": {
     "core-js": "^2.5.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
-    "@babel/cli": "^7.1.2",
+    "@babel/register": "^7.0.0",
+    "ava": "^0.25.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-istanbul": "^5.1.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "esm": "^3.0.84",
     "flow-bin": "^0.85.0",
     "husky": "^1.1.3",
+    "nyc": "^13.1.0",
     "prettier": "^1.14.3",
     "rollup": "^0.67.0",
     "rollup-plugin-babel": "^4.0.3",

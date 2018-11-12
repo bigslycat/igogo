@@ -42,6 +42,7 @@ rules:
   no-redeclare: off
 
   import/prefer-default-export: off
+  import/no-extraneous-dependencies: off
 
   flowtype/define-flow-type: error
   flowtype/no-mutable-array: error
