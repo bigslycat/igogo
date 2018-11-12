@@ -1,10 +1,12 @@
 language: node_js
 node_js:
-- '10'
+ - '10'
 script:
-- yarn lint
-- yarn flow
-- yarn run build
+  - yarn lint
+  - yarn flow
+  # - yarn test:nyc
+  # - yarn coverage
+  - yarn run build
 deploy:
   skip_cleanup: true
   provider: npm
