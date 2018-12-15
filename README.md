@@ -1,11 +1,11 @@
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/bigslycat/igogo.svg)](https://greenkeeper.io/)
-
 <h1 align="center">
   🦄<br>
   igogo<br>
   <a href="https://travis-ci.org/bigslycat/igogo">
-    <img src="https://travis-ci.org/bigslycat/igogo.svg?branch=master">
+    <img alt="Travis badge" src="https://travis-ci.org/bigslycat/igogo.svg?branch=master">
+  </a>
+  <a href="https://greenkeeper.io/">
+    <img alt="Greenkeeper badge" src="https://badges.greenkeeper.io/bigslycat/igogo.svg">
   </a>
 </h1>
 
