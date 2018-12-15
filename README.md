@@ -1,3 +1,6 @@
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/bigslycat/igogo.svg)](https://greenkeeper.io/)
+
 <h1 align="center">
   🦄<br>
   igogo<br>
