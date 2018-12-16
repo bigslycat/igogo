@@ -10,6 +10,21 @@
 </h1>
 
 <p align="center">
-  WIP. Fast Either and Maybe from
+  Fast Either and Maybe from
   <a href="https://github.com//fantasyland/fantasy-land">Fantasy Land</a>
 </p>
+
+## Install
+
+### npm
+
+```
+npm install --save igogo
+```
+
+### Yarn
+
+```
+yarn add igogo
+```
+
