@@ -28,3 +28,33 @@ npm install --save igogo
 yarn add igogo
 ```
 
+## API
+
+```ts
+import {
+ type Maybe,
+ type Either,
+ Just,
+ Nothing,
+ fromNullable,
+ opt,
+ when,
+ nothing,
+ Left,
+ Right,
+ ifElse,
+} from 'igogo'
+
+function Just<T>(value: T): Maybe<T>
+function Nothing<T>(value: T): Maybe<T>
+function fromNullable<T>(value: ?T): Maybe<T>
+function opt<T>(value: ?T): Maybe<T>
+function when<V>(condition: boolean, value: V): Maybe<V>
+function when<V>(predicate: mixed => boolean, value: V): Maybe<V>
+
+const nothing: Maybe<any>
+
+function Left<L, R>(left: L): Either<L, R>
+function Right<L, R>(right: R): Either<L, R>
+function ifElse<L, R>(condition: boolean, right: R, left: L): Either<L, R>
+```
