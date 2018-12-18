@@ -147,12 +147,12 @@ export const fromNullable = <T>(value: ?T): Maybe<T> =>
 
 export const opt = fromNullable;
 
-declare function when<V>(condition: boolean, value: V): Maybe<V>;
-declare function when<V>(
+declare export function when<V>(condition: boolean, value: V): Maybe<V>;
+declare export function when<V>(
   predicate: typeof Boolean,
   value: V,
 ): Maybe<$NonMaybeType<V>>;
-declare function when<P: $Pred<1>, V>(
+declare export function when<P: $Pred<1>, V>(
   predicate: P,
   value: V,
 ): Maybe<$Refine<V, P, 1>>;
