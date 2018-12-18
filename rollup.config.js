@@ -17,20 +17,57 @@ const banner = `
  */
 `;
 
-export default {
-  input: 'src/index.js',
-  output: {
-    file: 'lib/index.js',
-    format: 'cjs',
-    banner,
+const external = id => !!reg && reg.test(id);
+
+export default [
+  {
+    input: 'src/index.js',
+    output: {
+      file: 'lib/index.js',
+      format: 'cjs',
+      banner,
+    },
+    plugins: [
+      clear({
+        targets: ['lib'],
+      }),
+      flowEntry(),
+      babel({
+        exclude: 'node_modules/**',
+      }),
+      commonjs(),
+    ],
+    treeshake: true,
+    external,
   },
-  plugins: [
-    clear({
-      targets: ['lib'],
-    }),
-    flowEntry(),
-    babel(),
-    commonjs(),
-  ],
-  external: id => !!reg && reg.test(id),
-};
+  {
+    input: 'src/index.js',
+    output: {
+      file: 'esm/index.mjs',
+      format: 'esm',
+      banner,
+    },
+    plugins: [
+      clear({
+        targets: ['esm'],
+      }),
+      flowEntry(),
+      babel({
+        exclude: 'node_modules/**',
+        presets: [
+          [
+            '@babel/env',
+            {
+              targets: { node: 10 },
+              useBuiltIns: 'usage',
+              modules: false,
+            },
+          ],
+        ],
+      }),
+      commonjs(),
+    ],
+    treeshake: true,
+    external,
+  },
+];

@@ -15,14 +15,11 @@
   ],
   "types": "src/index.d.ts",
   "scripts": {
-    "build": "yarn build:cjs && yarn build:esm",
-    "build:cjs": "rollup -c",
-    "build:esm": "rm -rf esm && BABEL_ENV=esm node scripts/build-esm.js && yarn flow-entry",
-    "flow-entry": "cp lib/index.js.flow esm/index.mjs.flow",
+    "build": "rollup -c",
     "lint": "eslint .",
     "flow": "flow",
-    "test": "ava --timeout=30s --verbose",
-    "test:nyc": "nyc ava --timeout=30s --verbose",
+    "test": "ava --verbose",
+    "test:nyc": "nyc ava --verbose",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "preversion": "git checkout master && yarn lint && yarn flow",
     "postversion": "git push --follow-tags"
@@ -59,7 +56,6 @@
     "core-js": "^2.6.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-flow": "^7.0.0",
