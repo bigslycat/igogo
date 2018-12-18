@@ -1,7 +1,7 @@
 {
   "name": "igogo",
   "version": "1.0.3",
-  "description": "Fast Either and Maybe from Fantasy Land",
+  "description": "Fast Either and Maybe from Fantasy Land with Flow and TypeScript support",
   "repository": "git@github.com:bigslycat/igogo.git",
   "author": "Pavel Tereschenko <me@stupidcat.wtf> (https://github.com/bigslycat)",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "esm",
     "src"
   ],
+  "types": "src/index.d.ts",
   "scripts": {
     "build": "yarn build:cjs && yarn build:esm",
     "build:cjs": "rollup -c",
@@ -81,13 +82,17 @@
     "rollup-plugin-babel": "^4.1.0",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-flow-entry": "^0.2.0"
+    "rollup-plugin-flow-entry": "^0.2.0",
+    "typescript": "^3.2.2"
   },
   "keywords": [
     "Maybe",
     "Either",
     "ADT",
     "Flow",
+    "TypeScript",
+    "TS",
+    "FL",
     "Fantasy Land"
   ]
 }

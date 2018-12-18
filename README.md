@@ -12,6 +12,7 @@
 <p align="center">
   Fast Either and Maybe from
   <a href="https://github.com//fantasyland/fantasy-land">Fantasy Land</a>
+  with Flow and TypeScript support
 </p>
 
 ## Install
