@@ -59,6 +59,11 @@ export declare interface Either<L, R> {
   or<L1, R1>(either: Either<L1, R1>): Either<L1, R | R1>;
   and<L1, R1>(either: Either<L1, R1>): Either<L | L1, R1>;
 
+  getLOr(value: L): L;
+  getLOrElse(fn: () => L): L;
+  getROr(value: R): R;
+  getROrElse(fn: () => R): R;
+
   reduce<R1>(transform: (acc: R1, right: R) => R1, or: R1): R1;
   reduceR<R1>(transform: (acc: R1, right: R) => R1, or: R1): R1;
   reduceL<L1>(transform: (acc: L1, left: L) => L1, or: L1): L1;
