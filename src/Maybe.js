@@ -22,6 +22,8 @@ export interface Maybe<+T> {
   or<T1>(maybe: Maybe<T1>): Maybe<T1>;
   alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
 
+  getOr<T1>(value: T1): T | T1;
+  getOrElse<T1>(fn: () => T1): T | T1;
   reduce<T1>(transform: (T1, T) => T1, or: T1): T1;
 
   toEither<L>(left: L): either.Either<L, T>;
@@ -80,6 +82,14 @@ class MaybeJust<+T> implements Maybe<T> {
     return this;
   }
 
+  getOr(): T {
+    return getValue(this);
+  }
+
+  getOrElse(): T {
+    return getValue(this);
+  }
+
   reduce<T1>(transform: (T1, T) => T1, or: T1): T1 {
     return transform(or, getValue(this));
   }
@@ -136,6 +146,14 @@ class MaybeNothing<+T> implements Maybe<T> {
 
   alt<T1>(maybe: Maybe<T1>): Maybe<T | T1> {
     return maybe;
+  }
+
+  getOr<T1>(value: T1): T1 {
+    return value;
+  }
+
+  getOrElse<T1>(fn: () => T1): T1 {
+    return fn();
   }
 
   reduce<T1>(transform: (T1, T) => T1, or: T1): T1 {
