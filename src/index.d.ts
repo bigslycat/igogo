@@ -1,4 +1,7 @@
 export declare interface Maybe<T> {
+  readonly isJust: boolean;
+  readonly isNothing: boolean;
+
   map<T1>(transform: (value: T) => T1): Maybe<T1>;
   mapTo<T1>(value: T1): Maybe<T1>;
   ap<T1>(maybe: Maybe<(value: T) => T1>): Maybe<T1>;
@@ -27,6 +30,9 @@ export declare interface Maybe<T> {
 }
 
 export declare interface Either<L, R> {
+  readonly isRight: boolean;
+  readonly isLeft: boolean;
+
   map<R1>(transform: (right: R) => R1): Either<L, R1>;
   mapR<R1>(transform: (right: R) => R1): Either<L, R1>;
   mapL<L1>(transform: (left: L) => L1): Either<L1, R>;
