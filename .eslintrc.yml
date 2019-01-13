@@ -13,7 +13,6 @@ env:
   browser: false
 
 rules:
-
   prettier/prettier:
     - error
     - printWidth: 80
@@ -31,10 +30,10 @@ rules:
       proseWrap: preserve
 
   eqeqeq: [error, smart]
+  no-undef: off
   no-dupe-keys: error
   no-return-assign: off
   consistent-return: off
-
 
   no-use-before-define: off
   no-param-reassign: off
@@ -47,6 +46,7 @@ rules:
   flowtype/define-flow-type: error
   flowtype/no-mutable-array: error
   flowtype/no-types-missing-file-annotation: error
-  flowtype/require-valid-file-annotation: [error, never, { annotationStyle: block }]
+  flowtype/require-valid-file-annotation:
+    [error, never, { annotationStyle: block }]
   flowtype/type-id-match: [error, '^[A-Z][a-z0-9]*']
   flowtype/use-flow-type: error
