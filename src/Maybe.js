@@ -5,6 +5,9 @@ import * as either from './Either';
 import { getSet } from './getSet';
 
 export interface Maybe<+T> {
+  +isJust: boolean;
+  +isNothing: boolean;
+
   map<T1>(transform: (T) => T1): Maybe<T1>;
   mapTo<T1>(value: T1): Maybe<T1>;
   ap<T1>(maybe: Maybe<(T) => T1>): Maybe<T1>;
@@ -29,6 +32,14 @@ export interface Maybe<+T> {
 class MaybeJust<+T> implements Maybe<T> {
   constructor(value: T) {
     setValue(this, value);
+  }
+
+  get isJust() {
+    return true;
+  }
+
+  get isNothing() {
+    return false;
   }
 
   map<T1>(transform: T => T1): Maybe<T1> {
@@ -83,6 +94,14 @@ class MaybeJust<+T> implements Maybe<T> {
 }
 
 class MaybeNothing<+T> implements Maybe<T> {
+  get isJust() {
+    return false;
+  }
+
+  get isNothing() {
+    return true;
+  }
+
   map() {
     return nothing;
   }

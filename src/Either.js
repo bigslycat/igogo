@@ -5,6 +5,9 @@ import { getSet } from './getSet';
 import * as maybe from './Maybe';
 
 export interface Either<+L, +R> {
+  +isRight: boolean;
+  +isLeft: boolean;
+
   map<R1>(transform: (R) => R1): Either<L, R1>;
   mapR<R1>(transform: (R) => R1): Either<L, R1>;
   mapL<L1>(transform: (L) => L1): Either<L1, R>;
@@ -56,6 +59,14 @@ export interface Either<+L, +R> {
 class EitherRight<+L, +R> implements Either<L, R> {
   constructor(value: R) {
     setRight(this, value);
+  }
+
+  get isRight() {
+    return true;
+  }
+
+  get isLeft() {
+    return false;
   }
 
   map<R1>(transform: R => R1): Either<L, R1> {
@@ -198,6 +209,14 @@ class EitherRight<+L, +R> implements Either<L, R> {
 class EitherLeft<+L, +R> implements Either<L, R> {
   constructor(value: L) {
     setLeft(this, value);
+  }
+
+  get isRight() {
+    return false;
+  }
+
+  get isLeft() {
+    return true;
   }
 
   map<R1>(): Either<L, R1> {
