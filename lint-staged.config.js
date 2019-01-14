@@ -1,6 +1,6 @@
 module.exports = {
   'lint-staged': {
-    '*.js': ['eslint --fix', 'prettier --write', 'git add'],
-    '*.{json,js,eslintrc}': ['prettier --write', 'git add'],
+    '*.js': ['eslint --fix', 'flow', 'prettier --write', 'git add'],
+    '*.{json,js}': ['prettier --write', 'git add'],
   },
 };
