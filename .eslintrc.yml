@@ -17,18 +17,18 @@ rules:
     - error
 
   eqeqeq: [error, smart]
-  no-undef: off
+  no-undef: 0
   no-dupe-keys: error
-  no-return-assign: off
-  consistent-return: off
+  no-return-assign: 0
+  consistent-return: 0
 
-  no-use-before-define: off
-  no-param-reassign: off
-  class-methods-use-this: off
-  no-redeclare: off
+  no-use-before-define: 0
+  no-param-reassign: 0
+  class-methods-use-this: 0
+  no-redeclare: 0
 
-  import/prefer-default-export: off
-  import/no-extraneous-dependencies: off
+  import/prefer-default-export: 0
+  import/no-extraneous-dependencies: 0
 
   flowtype/define-flow-type: error
   flowtype/no-mutable-array: error
