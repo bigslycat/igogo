@@ -8,10 +8,12 @@ jobs:
     #   script: yarn lint
     # - stage: Flow check
     #   script: yarn flow
-    - stage: release
+    - stage: Stable release
       node_js: lts/*
       deploy:
         provider: script
+        if: tag =~ /^[0-9]+\.[0-9]+\.[0-9]+$/
         skip_cleanup: true
         script:
+          - yarn build
           - yarn semantic-release
