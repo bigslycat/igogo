@@ -9,7 +9,7 @@ jobs:
     # - stage: Flow check
     #   script: yarn flow
     - stage: Stable release
-      if: branch = master AND tag =~ /^[0-9]+\.[0-9]+\.[0-9]+$/
+      if: (branch = master) AND (tag =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/)
       deploy:
         provider: script
         skip_cleanup: true
