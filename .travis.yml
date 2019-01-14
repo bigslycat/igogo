@@ -16,3 +16,5 @@ jobs:
         script:
           - yarn build
           - yarn semantic-release
+        on:
+          tags: true
