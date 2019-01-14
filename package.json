@@ -1,6 +1,6 @@
 {
   "name": "igogo",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Fast Either and Maybe from Fantasy Land with Flow and TypeScript support",
   "repository": "git@github.com:bigslycat/igogo.git",
   "author": "Pavel Tereschenko <me@stupidcat.wtf> (https://github.com/bigslycat)",
