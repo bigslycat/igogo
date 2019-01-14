@@ -78,8 +78,8 @@ class MaybeJust<+T> implements Maybe<T> {
     return nothing;
   }
 
-  alt<T1>(): Maybe<T | T1> {
-    return this;
+  alt<T1>(maybe: Maybe<T1>): Maybe<T | T1> {
+    return maybe;
   }
 
   getOr(): T {
