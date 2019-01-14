@@ -1,19 +1,24 @@
 <h1 align="center">
   🦄<br>
   igogo<br>
+    <a href="https://www.npmjs.com/package/igogo">
+    <img alt="Npm version" src="https://img.shields.io/npm/v/igogo.svg?style=flat-square">
+  </a>
   <a href="https://travis-ci.org/bigslycat/igogo">
-    <img alt="Travis badge" src="https://travis-ci.org/bigslycat/igogo.svg?branch=master">
+    <img alt="Travis badge" src="https://img.shields.io/travis/bigslycat/igogo/master.svg?style=flat-square">
   </a>
   <a href="https://greenkeeper.io/">
-    <img alt="Greenkeeper badge" src="https://badges.greenkeeper.io/bigslycat/igogo.svg">
+    <img alt="Greenkeeper badge" src="https://badges.greenkeeper.io/bigslycat/igogo.svg?style=flat-square">
   </a>
 </h1>
 
-<p align="center">
+<div align="center">
+<strong >
   Fast Either and Maybe from
   <a href="https://github.com//fantasyland/fantasy-land">Fantasy Land</a>
-  with Flow and TypeScript support
-</p>
+  with Flow and TypeScript support.
+</strong>
+</div>
 
 ## Install
 
