@@ -1,4 +1,3 @@
-/* @flow */
 import test from 'ava';
 import { Just, Nothing } from '../../src/Maybe';
 
