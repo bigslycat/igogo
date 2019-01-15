@@ -18,12 +18,14 @@ test('returns value of the same Alt on the Just instance', t => {
       .alt(just2.map(transform))
       .getOr(),
   );
+  t.is(just1.alt(just2).getOr(), just1.getOr());
 });
 
 test('returns value of the same alt on the Nothing instance', t => {
-  const nothing = Nothing();
+  const nothing1 = Nothing();
+  const nothing2 = Nothing();
   const just = Just(10);
 
-  t.is(nothing.alt(just).isJust, just.isJust);
-  t.is(nothing.alt(just).getOr(), just.getOr());
+  t.is(nothing1.alt(just).getOr(), just.getOr());
+  t.true(nothing1.alt(nothing2).isNothing);
 });
