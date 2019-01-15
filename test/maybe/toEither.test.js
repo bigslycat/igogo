@@ -1,7 +1,7 @@
 import test from 'ava';
 import { Just, Nothing } from '../../src/Maybe';
 
-test('returns Either right side on Just instance', t => {
+test('returns Either right side on the Just instance', t => {
   const value = 10;
   const just = Just(value);
 
@@ -9,7 +9,7 @@ test('returns Either right side on Just instance', t => {
   t.is(just.toEither().getRightOr(), value);
 });
 
-test('returns Either left side on Nothing instance', t => {
+test('returns Either left side on the Nothing instance', t => {
   const nothing = Nothing();
   const leftValue = 'nothing';
 

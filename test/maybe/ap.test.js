@@ -44,7 +44,7 @@ test('throws an error when transform is not a function', t => {
   t.is(error(true).message, errorMessage);
 });
 
-test('applies nothing on Nonthing instance', t => {
+test('applies nothing on the Nonthing instance', t => {
   const nothing = Nothing();
 
   t.true(nothing.ap().isNothing);

@@ -9,7 +9,7 @@ test('returns value on the Just instance', t => {
   t.is(just.getOr(value + value), value);
 });
 
-test('return arg on Nothing instance', t => {
+test('return argument on the Nothing instance', t => {
   const defaultValue = 10;
   const nothing = Nothing();
 

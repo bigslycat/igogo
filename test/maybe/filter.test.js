@@ -10,7 +10,7 @@ beforeEach(t => {
   t.context.predicate3 = x => x !== value;
 });
 
-test('returns filter Just instance', t => {
+test('returns the filtered Just instance', t => {
   const value = 10;
   const just1 = Just(value);
   const just2 = Just(value);
@@ -46,7 +46,7 @@ test('throws an error when there is no predicate', t => {
   t.is(error(true).message, errorMessage);
 });
 
-test('returns nothing on Nothing instance', t => {
+test('nothing to filter on the Nothing instance', t => {
   const nothing = Nothing();
 
   t.true(nothing.filter().isNothing);

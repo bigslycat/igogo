@@ -1,7 +1,7 @@
 import test from 'ava';
 import { Just, Nothing } from '../../src/Maybe';
 
-test('returns a value of the save chain', t => {
+test('returns a value of the same chain', t => {
   const value = 10;
   const just = Just(value);
   const transform1 = x => Just(x);
@@ -34,7 +34,7 @@ test('throws an error when transform is not a function', t => {
   t.is(error(true).message, errorMessage);
 });
 
-test('returns nothing on Nothing instance', t => {
+test('returns nothing on the Nothing instance', t => {
   const nothing = Nothing();
 
   t.true(nothing.chain(() => Just(10)).isNothing);

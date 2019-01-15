@@ -1,7 +1,7 @@
 import test from 'ava';
 import { Just, Nothing } from '../../src/Maybe';
 
-test('return value on the Just instance', t => {
+test('returns value on the Just instance', t => {
   const value = 10;
   const just = Just(value);
 

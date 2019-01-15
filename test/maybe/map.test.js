@@ -43,7 +43,7 @@ test('throws an error when transform is not a function', t => {
   t.is(error({}).message, errorMessage);
 });
 
-test('returns nothing on Nonthing instance', t => {
+test('returns nothing on the Nonthing instance', t => {
   const nothing = Nothing();
 
   t.true(nothing.map(x => x).isNothing);

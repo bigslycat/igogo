@@ -1,7 +1,7 @@
 import test from 'ava';
 import { Just, Nothing } from '../../src/Maybe';
 
-test('returns argument', t => {
+test('returns argument on the Just instance', t => {
   const just1 = Just(10);
   const just2 = Just(20);
 
@@ -9,7 +9,7 @@ test('returns argument', t => {
   t.is(just1.and(), undefined);
 });
 
-test('returns nothing on Nothing instance', t => {
+test('returns nothing on the Nothing instance', t => {
   const nothing = Nothing();
   const just = Just(10);
 

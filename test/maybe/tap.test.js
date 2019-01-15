@@ -8,7 +8,7 @@ beforeEach(t => {
   t.context.sideEffect = x => x;
 });
 
-test('calls side-effect in Just instance', t => {
+test('calls side-effect in the Just instance', t => {
   const { just, value, sideEffect } = t.context;
 
   t.is(just.tap(sideEffect).getOr(), value);
@@ -24,7 +24,7 @@ test('throws an error when side-effect is not a function', t => {
   t.is(error.message, errorMessage);
 });
 
-test('calls nothing in Nothing instance', t => {
+test('calls nothing in the Nothing instance', t => {
   const nothing = Nothing();
   const { sideEffect } = t.context;
 
