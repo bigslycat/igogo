@@ -6,7 +6,7 @@ test('sets value on the Just instance', t => {
   const newValue = 20;
 
   t.is(just.mapTo(newValue).getOr(), newValue);
-  t.is(just.mapTo().getOr(), undefined);
+  t.is(just.mapTo().getOr('DEFAULT'), undefined);
 });
 
 test('sets nothing on the Nothing instance', t => {

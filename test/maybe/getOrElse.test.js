@@ -6,7 +6,6 @@ test('returns value on the Just instance', t => {
   const just = Just(value);
 
   t.is(just.getOrElse(), value);
-  t.is(just.getOrElse(value + value), value);
 });
 
 test('calls function on the Nothing instance', t => {

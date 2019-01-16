@@ -6,7 +6,7 @@ test('returns Either right side on the Just instance', t => {
   const just = Just(value);
 
   t.true(just.toEither().isRight);
-  t.is(just.toEither().getRightOr(), value);
+  t.is(just.toEither('LEFT').getRightOr('DEFAULT'), value);
 });
 
 test('returns Either left side on the Nothing instance', t => {

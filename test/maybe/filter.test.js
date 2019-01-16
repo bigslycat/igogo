@@ -1,14 +1,5 @@
-import test, { beforeEach } from 'ava';
+import test from 'ava';
 import { Just, Nothing } from '../../src/Maybe';
-
-beforeEach(t => {
-  const value = 10;
-  t.context.value = value;
-  t.context.just = Just(value);
-  t.context.predicate1 = x => x === value;
-  t.context.predicate2 = x => x % 2 === 0;
-  t.context.predicate3 = x => x !== value;
-});
 
 test('returns the filtered Just instance', t => {
   const value = 10;

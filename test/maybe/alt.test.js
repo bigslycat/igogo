@@ -18,7 +18,7 @@ test('returns value of the same Alt on the Just instance', t => {
       .alt(just2.map(transform))
       .getOr(),
   );
-  t.is(just1.alt(just2).getOr(), just1.getOr());
+  t.is(just1.alt(just2).getOr('DEFAULT 1'), just1.getOr('DEFAULT 2'));
 });
 
 test('returns value of the same alt on the Nothing instance', t => {
