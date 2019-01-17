@@ -19,7 +19,7 @@ export interface Maybe<+T> {
   tap(call: (T) => any): Maybe<T>;
 
   and<T1>(maybe: Maybe<T1>): Maybe<T1>;
-  or<T1>(maybe: Maybe<T1>): Maybe<T1>;
+  or<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
   alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
 
   getOr<T1>(value: T1): T | T1;
