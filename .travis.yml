@@ -13,9 +13,6 @@ jobs:
     - stage: Stable release
       if: tag =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/
       node_js: node
-      skip_cleanup: true
       script:
         - yarn build
         - npx semantic-release
-      on:
-        tags: true
