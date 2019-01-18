@@ -19,7 +19,7 @@ export interface Maybe<+T> {
   tap(call: (T) => any): Maybe<T>;
 
   and<T1>(maybe: Maybe<T1>): Maybe<T1>;
-  or<T1>(maybe: Maybe<T1>): Maybe<T1>;
+  or<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
   alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
 
   getOr<T1>(value: T1): T | T1;
@@ -74,11 +74,11 @@ class MaybeJust<+T> implements Maybe<T> {
     return maybe;
   }
 
-  or<T1>(): Maybe<T1> {
-    return nothing;
+  or(): Maybe<T> {
+    return this;
   }
 
-  alt<T1>(): Maybe<T | T1> {
+  alt(): Maybe<T> {
     return this;
   }
 
@@ -144,7 +144,7 @@ class MaybeNothing<+T> implements Maybe<T> {
     return maybe;
   }
 
-  alt<T1>(maybe: Maybe<T1>): Maybe<T | T1> {
+  alt<T1>(maybe: Maybe<T1>): Maybe<T1> {
     return maybe;
   }
 
