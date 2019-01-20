@@ -6,10 +6,12 @@ node_js:
 
 jobs:
   include:
-    # - stage: Lint
-    #   script: yarn lint
-    # - stage: Flow check
-    #   script: yarn flow
+    - stage: Lint
+      script: yarn lint
+    - stage: Flow check
+      script: yarn flow
+    - stage: Test
+      script: yarn test
     - stage: Release
       if: branch = master
       node_js: node
