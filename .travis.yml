@@ -10,7 +10,8 @@ jobs:
     #   script: yarn lint
     # - stage: Flow check
     #   script: yarn flow
-    - stage: Stable release
+    - stage: Release
+      if: branch = master
       node_js: node
       script:
         - yarn build
