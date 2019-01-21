@@ -1,6 +1,10 @@
 module.exports = {
   plugins: [
-    ['@semantic-release/npm', { tarballDir: 'dist' }],
-    ['@semantic-release/github', { assets: 'dist/*.tgz' }],
+    '@semantic-release/commit-analyzer',
+    '@semantic-release/release-notes-generator',
+    '@semantic-release/changelog',
+    '@semantic-release/npm',
+    '@semantic-release/git',
+    '@semantic-release/github',
   ],
 };

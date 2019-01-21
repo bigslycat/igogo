@@ -6,12 +6,14 @@ node_js:
 
 jobs:
   include:
-    # - stage: Lint
-    #   script: yarn lint
-    # - stage: Flow check
-    #   script: yarn flow
-    - stage: Stable release
-      if: tag =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/
+    - stage: Lint
+      script: yarn lint
+    - stage: Flow check
+      script: yarn flow
+    - stage: Test
+      script: yarn test
+    - stage: Release
+      if: branch = master
       node_js: node
       script:
         - yarn build

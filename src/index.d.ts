@@ -17,7 +17,7 @@ export declare interface Maybe<T> {
   tap(call: (value: T) => any): Maybe<T>;
 
   and<T1>(maybe: Maybe<T1>): Maybe<T1>;
-  or<T1>(maybe: Maybe<T1>): Maybe<T1>;
+  or<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
   alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
 
   getOr(value: T): T;
