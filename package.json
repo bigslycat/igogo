@@ -18,7 +18,7 @@
     "build": "rollup -c",
     "lint": "eslint .",
     "flow": "flow",
-    "test": "echo Relax plz",
+    "test": "ava --verbose",
     "test:nyc": "nyc ava --verbose",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "semantic-release": "semantic-release"
@@ -84,6 +84,7 @@
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-flow-entry": "^0.2.0",
+    "sinon": "^7.2.2",
     "semantic-release": "^15.13.3",
     "typescript": "^3.2.2"
   },
