@@ -92,6 +92,8 @@ export declare interface Either<L, R> {
   left(): Maybe<L>;
   right(): Maybe<R>;
 
+  match<R1, L1>(fromRight: (right: R) => R1, fromLeft: (left: L) => L1): R1 | L1;
+
   toMaybe(): Maybe<R>;
   toMaybeR(): Maybe<R>;
   toMaybeL(): Maybe<L>;

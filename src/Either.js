@@ -57,6 +57,8 @@ export interface Either<+L, +R> {
   left(): maybe.Maybe<L>;
   right(): maybe.Maybe<R>;
 
+  match<R1, L1>(fromRight: (R) => R1, fromLeft: (L) => L1): R1 | L1;
+
   toMaybe(): maybe.Maybe<R>;
   toMaybeR(): maybe.Maybe<R>;
   toMaybeL(): maybe.Maybe<L>;
@@ -222,6 +224,13 @@ class EitherRight<+L, +R> implements Either<L, R> {
 
   right(): maybe.Maybe<R> {
     return this.toMaybeR();
+  }
+
+  match<R1, L1>(
+    fromRight: R => R1,
+    /* :: fromLeft: L => L1, */
+  ): R1 | L1 {
+    return fromRight(getRight(this));
   }
 
   toMaybe(): maybe.Maybe<R> {
@@ -405,6 +414,10 @@ class EitherLeft<+L, +R> implements Either<L, R> {
 
   right(): maybe.Maybe<R> {
     return this.toMaybeR();
+  }
+
+  match<R1, L1>(fromRight: R => R1, fromLeft: L => L1): R1 | L1 {
+    return fromLeft(getLeft(this));
   }
 
   toMaybe(): maybe.Maybe<R> {
