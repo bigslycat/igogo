@@ -24,6 +24,8 @@ export declare interface Maybe<T> {
   getOrElse(fn: () => T): T;
   reduce<T1>(transform: (acc: T1, value: T) => T1, or: T1): T1;
 
+  match<T1, T2>(fromJust: (value: T) => T1, fromNothing: () => T2): T1 | T2;
+
   toEither<L>(left: L): Either<L, T>;
 
   promise(error?: Error): Promise<T>;
