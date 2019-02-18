@@ -20,6 +20,8 @@ export declare interface Maybe<T> {
   or<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
   alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
 
+  unwrap(): void | T;
+  unwrapOr<T1>(value: T1): T | T1;
   getOr(value: T): T;
   getOrElse(fn: () => T): T;
   reduce<T1>(transform: (acc: T1, value: T) => T1, or: T1): T1;

@@ -22,6 +22,8 @@ export interface Maybe<+T> {
   or<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
   alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
 
+  unwrap(): void | T;
+  unwrapOr<T1>(value: T1): T | T1;
   getOr<T1>(value: T1): T | T1;
   getOrElse<T1>(fn: () => T1): T | T1;
   reduce<T1>(transform: (T1, T) => T1, or: T1): T1;
@@ -80,6 +82,14 @@ class MaybeJust<+T> implements Maybe<T> {
 
   alt(): Maybe<T> {
     return this;
+  }
+
+  unwrap(): T {
+    return getValue(this);
+  }
+
+  unwrapOr(): T {
+    return getValue(this);
   }
 
   getOr(): T {
@@ -146,6 +156,12 @@ class MaybeNothing<+T> implements Maybe<T> {
 
   alt<T1>(maybe: Maybe<T1>): Maybe<T1> {
     return maybe;
+  }
+
+  unwrap() {}
+
+  unwrapOr<T1>(value: T1): T1 {
+    return value;
   }
 
   getOr<T1>(value: T1): T1 {
