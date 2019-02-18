@@ -65,6 +65,8 @@ export declare interface Either<L, R> {
   or<L1, R1>(either: Either<L1, R1>): Either<L1, R | R1>;
   and<L1, R1>(either: Either<L1, R1>): Either<L | L1, R1>;
 
+  unwrap(): R | L;
+
   getOr(value: R): R;
   getOrElse(fn: (L) => R): R;
 

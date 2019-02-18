@@ -35,6 +35,8 @@ export interface Either<+L, +R> {
   or<L1, R1>(either: Either<L1, R1>): Either<L1, R | R1>;
   and<L1, R1>(either: Either<L1, R1>): Either<L | L1, R1>;
 
+  unwrap(): R | L;
+
   getOr<R1>(value: R1): R | R1;
   getOrElse<R1>(fn: (L) => R1): R | R1;
 
@@ -157,6 +159,10 @@ class EitherRight<+L, +R> implements Either<L, R> {
 
   and<L1, R1>(either: Either<L1, R1>): Either<L | L1, R1> {
     return either;
+  }
+
+  unwrap(): R {
+    return getRight(this);
   }
 
   getOr(): R {
@@ -340,6 +346,10 @@ class EitherLeft<+L, +R> implements Either<L, R> {
 
   and<L1, R1>(): Either<L | L1, R1> {
     return (this: Either<L | L1, any>);
+  }
+
+  unwrap(): L {
+    return getLeft(this);
   }
 
   getOr<R1>(value: R1): R1 {
