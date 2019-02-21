@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/bigslycat/igogo/compare/v1.4.13...v1.5.0) (2019-02-21)
+
+
+### Features
+
+* **Maybe:** add match method ([2cdf299](https://github.com/bigslycat/igogo/commit/2cdf299))
+
 ## [1.4.13](https://github.com/bigslycat/igogo/compare/v1.4.12...v1.4.13) (2019-01-22)
 
 
