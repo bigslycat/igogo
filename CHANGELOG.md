@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/bigslycat/igogo/compare/v1.5.0...v1.6.0) (2019-02-21)
+
+
+### Features
+
+* **Either:** add match method ([68a5114](https://github.com/bigslycat/igogo/commit/68a5114))
+
 # [1.5.0](https://github.com/bigslycat/igogo/compare/v1.4.13...v1.5.0) (2019-02-21)
 
 
