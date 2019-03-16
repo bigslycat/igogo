@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/bigslycat/igogo/compare/v1.6.0...v1.7.0) (2019-03-16)
+
+
+### Features
+
+* add constructor fromFalsy ([553fb5c](https://github.com/bigslycat/igogo/commit/553fb5c))
+* add types for fromFalsy function ([b5f1880](https://github.com/bigslycat/igogo/commit/b5f1880))
+
 # [1.6.0](https://github.com/bigslycat/igogo/compare/v1.5.0...v1.6.0) (2019-02-21)
 
 
