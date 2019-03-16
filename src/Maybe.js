@@ -195,6 +195,9 @@ export const Nothing = <T>(/* :: value: T */): Maybe<T> => nothing;
 export const fromNullable = <T>(value: ?T): Maybe<T> =>
   value == null ? nothing : Just(value);
 
+export const fromFalsy = <T>(value: ?T): Maybe<T> =>
+  !value ? nothing : Just(value);
+
 export const opt = fromNullable;
 
 declare export function when<V>(condition: boolean, value: V): Maybe<V>;
