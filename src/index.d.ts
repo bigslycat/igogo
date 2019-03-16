@@ -92,7 +92,10 @@ export declare interface Either<L, R> {
   left(): Maybe<L>;
   right(): Maybe<R>;
 
-  match<R1, L1>(fromRight: (right: R) => R1, fromLeft: (left: L) => L1): R1 | L1;
+  match<R1, L1>(
+    fromRight: (right: R) => R1,
+    fromLeft: (left: L) => L1,
+  ): R1 | L1;
 
   toMaybe(): Maybe<R>;
   toMaybeR(): Maybe<R>;
@@ -109,6 +112,9 @@ export declare const nothing: Maybe<any>;
 export declare function Just<T>(value: T): Maybe<T>;
 export declare function Nothing<T>(value: T): Maybe<T>;
 export declare function fromNullable<T>(value: null | void | T): Maybe<T>;
+export declare function fromFalsy<T>(
+  value: false | null | undefined | void | T,
+): Maybe<T>;
 export declare function opt<T>(value: null | void | T): Maybe<T>;
 export declare function when<V>(condition: boolean, value: V): Maybe<V>;
 export declare function when<V>(
