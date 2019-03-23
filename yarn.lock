@@ -2631,7 +2631,12 @@ eslint@5.15.3:
     table "^5.2.3"
     text-table "^0.2.0"
 
-esm@3.2.18, esm@^3.2.10:
+esm@3.2.19:
+  version "3.2.19"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.19.tgz#700a250f6fe06c4d67bb609528d4d208d2c81411"
+  integrity sha512-thFxRC6o0gKfSiSwuUI2JO01f9JOm1qRWGfBLry0LF3L8mSeSTK58DqCE3+0ZKq02e/DClCJf3BW9nVwd/ejCw==
+
+esm@^3.2.10:
   version "3.2.18"
   resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.18.tgz#54e9276449ab832b01240069ae66bf245785c767"
   integrity sha512-1UENjnnI37UDp7KuOqKYjfqdaMim06eBWnDv37smaxTIzDl0ZWnlgoXwsVwD9+Lidw+q/f1gUf2diVMDCycoVw==
