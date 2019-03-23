@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/bigslycat/igogo/compare/v1.7.0...v1.7.1) (2019-03-23)
+
+
+### Bug Fixes
+
+* **package:** update core-js to version 3.0.0 ([8b66a9c](https://github.com/bigslycat/igogo/commit/8b66a9c))
+
 # [1.7.0](https://github.com/bigslycat/igogo/compare/v1.6.0...v1.7.0) (2019-03-16)
 
 
