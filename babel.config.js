@@ -6,6 +6,7 @@ const env = ({ modules = false } = {}) => [
       browsers: ['last 4 version', '> 1%', 'not dead'],
     },
     useBuiltIns: 'usage',
+    corejs: { version: 3, proposals: true },
     modules: modules && 'commonjs',
   },
 ];
@@ -25,6 +26,7 @@ module.exports = {
           {
             targets: { node: 'current' },
             useBuiltIns: 'usage',
+            corejs: { version: 3, proposals: true },
             modules: 'commonjs',
           },
         ],
