@@ -52,7 +52,7 @@
     "instrument": false
   },
   "dependencies": {
-    "core-js": "^3.0.0"
+    "core-js": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",
@@ -71,7 +71,7 @@
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "4.1.0",
-    "eslint-plugin-flowtype": "^3.4.2",
+    "eslint-plugin-flowtype": "^3.6.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.0.1",
     "esm": "3.2.22",
@@ -82,11 +82,11 @@
     "rollup": "1.9.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-clear": "^2.0.7",
-    "rollup-plugin-commonjs": "9.3.0",
+    "rollup-plugin-commonjs": "9.3.4",
     "rollup-plugin-flow-entry": "0.3.1",
     "semantic-release": "^15.13.3",
     "sinon": "7.3.1",
-    "typescript": "3.3.4000"
+    "typescript": "3.4.2"
   },
   "keywords": [
     "Maybe",
