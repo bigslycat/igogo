@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/bigslycat/igogo/compare/v1.7.1...v1.7.2) (2019-06-13)
+
+
+### Bug Fixes
+
+* **package:** fix security alerts ([4204459](https://github.com/bigslycat/igogo/commit/4204459))
+
 ## [1.7.1](https://github.com/bigslycat/igogo/compare/v1.7.0...v1.7.1) (2019-03-23)
 
 
