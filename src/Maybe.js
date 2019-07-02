@@ -2,9 +2,11 @@
 
 import * as either from './Either';
 
+import { toIterator } from './toIterator';
+import { toEmptyIterator } from './toEmptyIterator';
 import { getSet } from './getSet';
 
-export interface Maybe<+T> {
+export interface Maybe<+T> extends Iterable<T> {
   +isJust: boolean;
   +isNothing: boolean;
 
@@ -45,6 +47,8 @@ class MaybeJust<+T> implements Maybe<T> {
   get isNothing() {
     return false;
   }
+
+  /* :: +@@iterator: () => Iterator<T>; */
 
   map<T1>(transform: T => T1): Maybe<T1> {
     return Just(transform(getValue(this)));
@@ -121,6 +125,8 @@ class MaybeNothing<+T> implements Maybe<T> {
     return true;
   }
 
+  /* :: +@@iterator: () => Iterator<T>; */
+
   map() {
     return nothing;
   }
@@ -188,6 +194,10 @@ const [getValue, setValue]: [
   <T>(MaybeJust<T>) => T,
   <T>(MaybeJust<T>, T) => T,
 ] = getSet('value');
+
+(MaybeJust.prototype: any)[Symbol.iterator] = toIterator(getValue);
+
+(MaybeNothing.prototype: any)[Symbol.iterator] = toEmptyIterator;
 
 export const Just = <T>(value: T): Maybe<T> => new MaybeJust(value);
 export const Nothing = <T>(/* :: value: T */): Maybe<T> => nothing;

@@ -1,4 +1,4 @@
-export declare interface Maybe<T> {
+export declare interface Maybe<T> extends Iterable<T> {
   readonly isJust: boolean;
   readonly isNothing: boolean;
 
