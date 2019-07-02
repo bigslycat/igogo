@@ -6,36 +6,38 @@ import { toIterator } from './toIterator';
 import { toEmptyIterator } from './toEmptyIterator';
 import { getSet } from './getSet';
 
-export interface Maybe<+T> extends Iterable<T> {
-  +isJust: boolean;
-  +isNothing: boolean;
+export type Maybe<+T> = {
+  @@iterator(): Iterator<T>,
 
-  map<T1>(transform: (T) => T1): Maybe<T1>;
-  mapTo<T1>(value: T1): Maybe<T1>;
-  ap<T1>(maybe: Maybe<(T) => T1>): Maybe<T1>;
-  chain<T1>(transform: (T) => Maybe<T1>): Maybe<T1>;
+  +isJust: boolean,
+  +isNothing: boolean,
 
-  filter(predicate: typeof Boolean): Maybe<$NonMaybeType<T>>;
-  filter<P: $Pred<1>>(predicate: P): Maybe<$Refine<T, P, 1>>;
+  map<T1>(transform: (T) => T1): Maybe<T1>,
+  mapTo<T1>(value: T1): Maybe<T1>,
+  ap<T1>(maybe: Maybe<(T) => T1>): Maybe<T1>,
+  chain<T1>(transform: (T) => Maybe<T1>): Maybe<T1>,
 
-  tap(call: (T) => any): Maybe<T>;
+  filter(predicate: typeof Boolean): Maybe<$NonMaybeType<T>>,
+  filter<P: $Pred<1>>(predicate: P): Maybe<$Refine<T, P, 1>>,
 
-  and<T1>(maybe: Maybe<T1>): Maybe<T1>;
-  or<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
-  alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>;
+  tap(call: (T) => any): Maybe<T>,
 
-  getOr<T1>(value: T1): T | T1;
-  getOrElse<T1>(fn: () => T1): T | T1;
-  reduce<T1>(transform: (T1, T) => T1, or: T1): T1;
+  and<T1>(maybe: Maybe<T1>): Maybe<T1>,
+  or<T1>(maybe: Maybe<T1>): Maybe<T | T1>,
+  alt<T1>(maybe: Maybe<T1>): Maybe<T | T1>,
 
-  match<T1, T2>(fromJust: (T) => T1, fromNothing: () => T2): T1 | T2;
+  getOr<T1>(value: T1): T | T1,
+  getOrElse<T1>(fn: () => T1): T | T1,
+  reduce<T1>(transform: (T1, T) => T1, or: T1): T1,
 
-  toEither<L>(left: L): either.Either<L, T>;
+  match<T1, T2>(fromJust: (T) => T1, fromNothing: () => T2): T1 | T2,
 
-  promise(error?: Error): Promise<T>;
-}
+  toEither<L>(left: L): either.Either<L, T>,
 
-class MaybeJust<+T> implements Maybe<T> {
+  promise(error?: Error): Promise<T>,
+};
+
+class MaybeJust<+T> {
   constructor(value: T) {
     setValue(this, value);
   }
@@ -116,7 +118,7 @@ class MaybeJust<+T> implements Maybe<T> {
   }
 }
 
-class MaybeNothing<+T> implements Maybe<T> {
+class MaybeNothing<+T> {
   get isJust() {
     return false;
   }
