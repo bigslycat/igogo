@@ -6,72 +6,74 @@ import { toIterator } from './toIterator';
 import { toEmptyIterator } from './toEmptyIterator';
 import * as maybe from './Maybe';
 
-export interface Either<+L, +R> extends Iterable<R> {
-  +isRight: boolean;
-  +isLeft: boolean;
+export type Either<+L, +R> = {
+  @@iterator(): Iterator<R>,
 
-  map<R1>(transform: (R) => R1): Either<L, R1>;
-  mapR<R1>(transform: (R) => R1): Either<L, R1>;
-  mapL<L1>(transform: (L) => L1): Either<L1, R>;
-  bimap<L1, R1>(transformL: (L) => L1, transformR: (R) => R1): Either<L1, R1>;
+  +isRight: boolean,
+  +isLeft: boolean,
 
-  mapTo<R1>(right: R1): Either<L, R1>;
-  mapRTo<R1>(right: R1): Either<L, R1>;
-  mapLTo<L1>(left: L1): Either<L1, R>;
-  bimapTo<L1, R1>(left: L1, right: R1): Either<L1, R1>;
+  map<R1>(transform: (R) => R1): Either<L, R1>,
+  mapR<R1>(transform: (R) => R1): Either<L, R1>,
+  mapL<L1>(transform: (L) => L1): Either<L1, R>,
+  bimap<L1, R1>(transformL: (L) => L1, transformR: (R) => R1): Either<L1, R1>,
 
-  chain<L1, R1>(transform: (R) => Either<L1, R1>): Either<L | L1, R1>;
-  chainR<L1, R1>(transform: (R) => Either<L1, R1>): Either<L | L1, R1>;
-  chainL<L1, R1>(transform: (L) => Either<L1, R1>): Either<L1, R | R1>;
+  mapTo<R1>(right: R1): Either<L, R1>,
+  mapRTo<R1>(right: R1): Either<L, R1>,
+  mapLTo<L1>(left: L1): Either<L1, R>,
+  bimapTo<L1, R1>(left: L1, right: R1): Either<L1, R1>,
+
+  chain<L1, R1>(transform: (R) => Either<L1, R1>): Either<L | L1, R1>,
+  chainR<L1, R1>(transform: (R) => Either<L1, R1>): Either<L | L1, R1>,
+  chainL<L1, R1>(transform: (L) => Either<L1, R1>): Either<L1, R | R1>,
   bichain<L1, R1>(
     transformL: (L) => Either<L1, R1>,
     transformR: (R) => Either<L1, R1>,
-  ): Either<L1, R1>;
+  ): Either<L1, R1>,
 
-  ap<L1, R1>(either: Either<L1, (R) => R1>): Either<L | L1, R1>;
-  apR<L1, R1>(either: Either<L1, (R) => R1>): Either<L | L1, R1>;
-  apL<L1, R1>(either: Either<(L) => L1, R1>): Either<L1, R | R1>;
-  biap<L1, R1>(either: Either<(L) => L1, (R) => R1>): Either<L1, R1>;
+  ap<L1, R1>(either: Either<L1, (R) => R1>): Either<L | L1, R1>,
+  apR<L1, R1>(either: Either<L1, (R) => R1>): Either<L | L1, R1>,
+  apL<L1, R1>(either: Either<(L) => L1, R1>): Either<L1, R | R1>,
+  biap<L1, R1>(either: Either<(L) => L1, (R) => R1>): Either<L1, R1>,
 
-  alt<L1, R1>(either: Either<L1, R1>): Either<L1, R | R1>;
-  or<L1, R1>(either: Either<L1, R1>): Either<L1, R | R1>;
-  and<L1, R1>(either: Either<L1, R1>): Either<L | L1, R1>;
+  alt<L1, R1>(either: Either<L1, R1>): Either<L1, R | R1>,
+  or<L1, R1>(either: Either<L1, R1>): Either<L1, R | R1>,
+  and<L1, R1>(either: Either<L1, R1>): Either<L | L1, R1>,
 
-  getOr<R1>(value: R1): R | R1;
-  getOrElse<R1>(fn: (L) => R1): R | R1;
+  getOr<R1>(value: R1): R | R1,
+  getOrElse<R1>(fn: (L) => R1): R | R1,
 
-  getLeftOr<L1>(value: L1): L | L1;
-  getLeftOrElse<L1>(fn: () => L1): L | L1;
-  getRightOr<R1>(value: R1): R | R1;
-  getRightOrElse<R1>(fn: () => R1): R | R1;
+  getLeftOr<L1>(value: L1): L | L1,
+  getLeftOrElse<L1>(fn: () => L1): L | L1,
+  getRightOr<R1>(value: R1): R | R1,
+  getRightOrElse<R1>(fn: () => R1): R | R1,
 
-  reduce<R1>(transform: (R1, R) => R1, or: R1): R1;
-  reduceR<R1>(transform: (R1, R) => R1, or: R1): R1;
-  reduceL<L1>(transform: (L1, L) => L1, or: L1): L1;
+  reduce<R1>(transform: (R1, R) => R1, or: R1): R1,
+  reduceR<R1>(transform: (R1, R) => R1, or: R1): R1,
+  reduceL<L1>(transform: (L1, L) => L1, or: L1): L1,
 
-  tap(call: (R) => mixed): Either<L, R>;
-  tapR(call: (R) => mixed): Either<L, R>;
-  tapL(call: (L) => mixed): Either<L, R>;
-  tapBoth(callL: (L) => mixed, callR: (R) => mixed): Either<L, R>;
+  tap(call: (R) => mixed): Either<L, R>,
+  tapR(call: (R) => mixed): Either<L, R>,
+  tapL(call: (L) => mixed): Either<L, R>,
+  tapBoth(callL: (L) => mixed, callR: (R) => mixed): Either<L, R>,
 
-  swap(): Either<R, L>;
+  swap(): Either<R, L>,
 
-  left(): maybe.Maybe<L>;
-  right(): maybe.Maybe<R>;
+  left(): maybe.Maybe<L>,
+  right(): maybe.Maybe<R>,
 
-  match<R1, L1>(fromRight: (R) => R1, fromLeft: (L) => L1): R1 | L1;
+  match<R1, L1>(fromRight: (R) => R1, fromLeft: (L) => L1): R1 | L1,
 
-  toMaybe(): maybe.Maybe<R>;
-  toMaybeR(): maybe.Maybe<R>;
-  toMaybeL(): maybe.Maybe<L>;
-  toMaybeLR(): maybe.Maybe<L | R>;
+  toMaybe(): maybe.Maybe<R>,
+  toMaybeR(): maybe.Maybe<R>,
+  toMaybeL(): maybe.Maybe<L>,
+  toMaybeLR(): maybe.Maybe<L | R>,
 
-  promise(): Promise<R>;
+  promise(): Promise<R>,
 
-  fold<T>(fromLeft: (L) => T, fromRight: (R) => T): T;
-}
+  fold<T>(fromLeft: (L) => T, fromRight: (R) => T): T,
+};
 
-class EitherRight<+L, +R> implements Either<L, R> {
+class EitherRight<+L, +R> {
   constructor(value: R) {
     setRight(this, value);
   }
@@ -262,7 +264,7 @@ class EitherRight<+L, +R> implements Either<L, R> {
   }
 }
 
-class EitherLeft<+L, +R> implements Either<L, R> {
+class EitherLeft<+L, +R> {
   constructor(value: L) {
     setLeft(this, value);
   }
