@@ -31,7 +31,7 @@ export declare interface Maybe<T> extends Iterable<T> {
   promise(error?: Error): Promise<T>;
 }
 
-export declare interface Either<L, R> {
+export declare interface Either<L, R> extends Iterable<R> {
   readonly isRight: boolean;
   readonly isLeft: boolean;
 

@@ -2,9 +2,11 @@
 
 import { getSet } from './getSet';
 
+import { toIterator } from './toIterator';
+import { toEmptyIterator } from './toEmptyIterator';
 import * as maybe from './Maybe';
 
-export interface Either<+L, +R> {
+export interface Either<+L, +R> extends Iterable<R> {
   +isRight: boolean;
   +isLeft: boolean;
 
@@ -81,6 +83,8 @@ class EitherRight<+L, +R> implements Either<L, R> {
   get isLeft() {
     return false;
   }
+
+  /* :: +@@iterator: () => Iterator<R>; */
 
   map<R1>(transform: R => R1): Either<L, R1> {
     return this.mapR(transform);
@@ -271,6 +275,8 @@ class EitherLeft<+L, +R> implements Either<L, R> {
     return true;
   }
 
+  /* :: +@@iterator: () => Iterator<R>; */
+
   map<R1>(): Either<L, R1> {
     return (this: any);
   }
@@ -454,6 +460,10 @@ const [getLeft, setLeft]: [
   <L, R>(EitherLeft<L, R>) => L,
   <L, R>(EitherLeft<L, R>, L) => L,
 ] = getSet('left');
+
+(EitherRight.prototype: any)[Symbol.iterator] = toIterator(getRight);
+
+(EitherLeft.prototype: any)[Symbol.iterator] = toEmptyIterator;
 
 export const Right = <L, R>(right: R): Either<L, R> => new EitherRight(right);
 export const Left = <L, R>(left: L): Either<L, R> => new EitherLeft(left);
