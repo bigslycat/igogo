@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/bigslycat/igogo/compare/v1.7.2...v1.8.0) (2019-07-02)
+
+
+### Features
+
+* **Either:** implement Iterator interface ([0b30161](https://github.com/bigslycat/igogo/commit/0b30161))
+* **Maybe:** implement Iterator interface ([d87a2fb](https://github.com/bigslycat/igogo/commit/d87a2fb))
+
 ## [1.7.2](https://github.com/bigslycat/igogo/compare/v1.7.1...v1.7.2) (2019-06-13)
 
 
