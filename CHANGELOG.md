@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/bigslycat/igogo/compare/v1.8.0...v2.0.0) (2019-10-31)
+
+
+### Code Refactoring
+
+* **Either:** switch interface to object literal ([1ee233e](https://github.com/bigslycat/igogo/commit/1ee233e1f15e902af0696f814d94e325aa647602))
+* **Maybe:** switch interface to object literal ([fd7cd09](https://github.com/bigslycat/igogo/commit/fd7cd09ec4bc3e58b79a4d9047484816dff95d03))
+
+
+### BREAKING CHANGES
+
+* **Either:** The Either interface is replaced by an object literal, which does not apply the "extends" and "implements" operators.
+* **Maybe:** The Maybe interface is replaced by an object literal, which does not apply the "extends" and "implements" operators.
+
 # [1.8.0](https://github.com/bigslycat/igogo/compare/v1.7.2...v1.8.0) (2019-07-02)
 
 
