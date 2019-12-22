@@ -85,7 +85,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-flow-entry": "^0.3.3",
     "semantic-release": "^15.4.0",
-    "sinon": "^7.5.0",
+    "sinon": "^8.0.0",
     "typescript": "^3.7.4"
   },
   "keywords": [
