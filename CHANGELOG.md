@@ -1,3 +1,11 @@
+## [1.8.1](https://github.com/bigslycat/igogo/compare/v1.8.0...v1.8.1) (2020-02-26)
+
+
+### Bug Fixes
+
+* **package:** fix potential security vulnerabilities ([1337c32](https://github.com/bigslycat/igogo/commit/1337c320f6139f278a8bf20c949bb8485c65a396))
+* **package:** fix security vulnerabilities ([26a1adc](https://github.com/bigslycat/igogo/commit/26a1adcf666ebfd0ac11a42a9888c827dd2aa663))
+
 # [1.8.0](https://github.com/bigslycat/igogo/compare/v1.7.2...v1.8.0) (2019-07-02)
 
 
