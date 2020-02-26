@@ -30,10 +30,13 @@ test('applies Just instance to another instance', t => {
 test('throws an error when transform is not a function', t => {
   const errorMessage = "Cannot read property 'map' of undefined";
   const error = arg =>
-    t.throws(() => {
-      const just = Just(arg);
-      just.ap();
-    }, TypeError);
+    t.throws(
+      () => {
+        const just = Just(arg);
+        just.ap();
+      },
+      { instanceOf: TypeError },
+    );
 
   t.is(error(null).message, errorMessage);
   t.is(error(undefined).message, errorMessage);

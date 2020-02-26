@@ -30,9 +30,12 @@ test('throws an error when transform is not a function', t => {
   const { just } = t.context;
   const errorMessage = 'transform is not a function';
   const error = arg =>
-    t.throws(() => {
-      just.map(arg);
-    }, TypeError);
+    t.throws(
+      () => {
+        just.map(arg);
+      },
+      { instanceOf: TypeError },
+    );
 
   t.is(error(null).message, errorMessage);
   t.is(error(undefined).message, errorMessage);

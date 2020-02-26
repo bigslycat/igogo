@@ -19,9 +19,12 @@ test('calls function on the Nothing instance', t => {
 test('throws an error on the Nothing instance if there is no function', t => {
   const nothing = Nothing();
   const errorMessage = 'fn is not a function';
-  const error = t.throws(() => {
-    nothing.getOrElse();
-  }, TypeError);
+  const error = t.throws(
+    () => {
+      nothing.getOrElse();
+    },
+    { instanceOf: TypeError },
+  );
 
   t.is(error.message, errorMessage);
 });

@@ -23,10 +23,13 @@ test('returns the filtered Just instance', t => {
 test('throws an error when there is no predicate', t => {
   const errorMessage = 'predicate is not a function';
   const error = arg =>
-    t.throws(() => {
-      const just = Just(10);
-      just.filter(arg);
-    }, TypeError);
+    t.throws(
+      () => {
+        const just = Just(10);
+        just.filter(arg);
+      },
+      { instanceOf: TypeError },
+    );
 
   t.is(error(null).message, errorMessage);
   t.is(error(undefined).message, errorMessage);
