@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/bigslycat/igogo/compare/v1.8.2...v1.9.0) (2020-02-26)
+
+
+### Features
+
+* **package:** add ES module build ([647f3e9](https://github.com/bigslycat/igogo/commit/647f3e92eb25df68c5a744bda9ce4d53e554b4d1))
+
 ## [1.8.2](https://github.com/bigslycat/igogo/compare/v1.8.1...v1.8.2) (2020-02-26)
 
 
