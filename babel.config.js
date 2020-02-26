@@ -17,7 +17,7 @@ module.exports = {
   env: {
     test: {
       plugins: ['istanbul'],
-      presets: [env({ modules: true }), ['module:ava/stage-4', false]],
+      presets: [env({ modules: true })],
     },
     script: {
       presets: [
