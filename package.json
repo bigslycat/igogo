@@ -6,6 +6,7 @@
   "author": "Pavel Tereschenko <me@stupidcat.wtf> (https://github.com/bigslycat)",
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "lib/index.es.js",
   "files": [
     "README.md",
     "LICENSE.md",
@@ -81,7 +82,6 @@
     "prettier": "^1.19.1",
     "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-flow-entry": "^0.3.3",
     "semantic-release": "^17.0.4",

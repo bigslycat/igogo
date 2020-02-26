@@ -1,7 +1,6 @@
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import flowEntry from 'rollup-plugin-flow-entry';
-import clear from 'rollup-plugin-clear';
 
 import packageJson from './package.json';
 
@@ -28,9 +27,6 @@ export default [
       banner,
     },
     plugins: [
-      clear({
-        targets: ['lib'],
-      }),
       flowEntry(),
       babel({
         exclude: 'node_modules/**',
@@ -48,9 +44,6 @@ export default [
       banner,
     },
     plugins: [
-      clear({
-        targets: ['esm'],
-      }),
       flowEntry(),
       babel({
         exclude: 'node_modules/**',
@@ -65,6 +58,24 @@ export default [
             },
           ],
         ],
+      }),
+      commonjs(),
+    ],
+    treeshake: true,
+    external,
+  },
+  {
+    input: 'src/index.js',
+    output: {
+      file: 'lib/index.es.js',
+      format: 'esm',
+      banner,
+    },
+    plugins: [
+      flowEntry(),
+      babel({
+        exclude: 'node_modules/**',
+        presets: [['@babel/env', false]],
       }),
       commonjs(),
     ],
