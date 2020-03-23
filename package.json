@@ -79,7 +79,7 @@
     "flow-bin": "^0.120.0",
     "husky": "^4.2.3",
     "nyc": "^15.0.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
