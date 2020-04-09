@@ -53,7 +53,7 @@
     "instrument": false
   },
   "dependencies": {
-    "core-js": "^3.6.4"
+    "core-js": "^3.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
